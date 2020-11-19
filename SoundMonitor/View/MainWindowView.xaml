@@ -1,0 +1,44 @@
+﻿<UserControl
+    x:Class="SoundMonitor.View.MainWindowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:SoundMonitor.View"
+    xmlns:viewmodel="clr-namespace:SoundMonitor.ViewModel"
+    d:DesignHeight="320"
+    d:DesignWidth="480"
+    mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewmodel:MainWindowViewModel />
+    </UserControl.DataContext>
+
+    <Grid>
+        <TabControl Panel.ZIndex="3">
+            <TabItem Header="Main">
+                <Grid>
+                    <view:MainTabView DataContext="{Binding}" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Settings">
+                <Grid>
+                    <view:SettingsTabView DataContext="{Binding}" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Debug">
+                <Grid>
+                    <view:DebugTabView DataContext="{Binding}" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Info" Visibility="Hidden">
+                <Grid>
+                    <view:InfoTabView DataContext="{Binding}" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
